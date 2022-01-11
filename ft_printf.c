@@ -6,7 +6,7 @@
 /*   By: ahazim <ahazim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 16:34:58 by ahazim            #+#    #+#             */
-/*   Updated: 2022/01/11 15:55:28 by ahazim           ###   ########.fr       */
+/*   Updated: 2022/01/11 17:07:41 by ahazim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	ft_checker(char word, va_list list)
 	else if (word == 'u')
 		index += ft_putunnb(va_arg(list, unsigned int));
 	else if (word == 'x')
-		index += lowerexa(va_arg(list, unsigned int));
+		index += ft_lowerexa(va_arg(list, unsigned long long));
 	else if (word == 'X')
-		index += upperexa(va_arg(list, unsigned int));
+		index += ft_upperexa(va_arg(list, unsigned long long));
 	else if (word == 'p')
 	{
 		index += put_str("0x");
@@ -36,6 +36,8 @@ int	ft_checker(char word, va_list list)
 	}
 	else if (word == '%')
 		index += put_char('%');
+	else
+		index += put_char(word);
 	return (index);
 }
 
@@ -48,21 +50,18 @@ int	ft_printf(const char *print, ...)
 	va_start(list, print);
 	index = 0;
 	count = 0;
+	if (!print)
+		return (0);
 	while (print[count])
 	{
-		if (print[count] != '%')
-		{
-			put_char(print[count]);
-			index++;
-		}
 		if (print[count] == '%')
 		{
 			count++;
-			while (print[count] == ' ' && print[count])
-				count++;
 			index += ft_checker(print[count], list);
 		}
-		index++;
+		else
+			index += put_char(print[count]);
+		count++;
 	}
 	va_end(list);
 	return (index);

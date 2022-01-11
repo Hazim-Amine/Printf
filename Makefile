@@ -6,7 +6,7 @@
 #    By: ahazim <ahazim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/22 19:07:59 by ahazim            #+#    #+#              #
-#    Updated: 2022/01/10 08:30:07 by ahazim           ###   ########.fr        #
+#    Updated: 2022/01/11 16:10:37 by ahazim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLUDES = ft_printf.h
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_printf.c
+SRC = ft_printf.c ft_printf_utils.c ft_printf_utils_hex.c
 
 OBJ = $(SRC:.c=.o)
 

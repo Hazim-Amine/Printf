@@ -6,7 +6,7 @@
 /*   By: ahazim <ahazim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:02:56 by ahazim            #+#    #+#             */
-/*   Updated: 2022/01/11 14:58:17 by ahazim           ###   ########.fr       */
+/*   Updated: 2022/01/11 16:39:17 by ahazim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,22 +60,22 @@ int	ft_putnbr(int num)
 	count = 0;
 	if (nb == -2147483648)
 	{
-		write (1, "-2147483648", 11);
-		return (11);
+		return (write (1, "-2147483648", 11));
 	}
 	if (nb < 0)
 	{
+		count++;
 		put_char('-');
 		nb = nb * -1;
 	}
 	if (nb <= 9)
-		put_char(nb + '0');
+		count += put_char(nb + '0');
 	else
 	{
 		count += ft_putnbr(nb / 10);
 		count += ft_putnbr(nb % 10);
 	}
-	return (count + 1);
+	return (count );
 }
 
 int	ft_putunnb(unsigned int nb)
@@ -85,7 +85,7 @@ int	ft_putunnb(unsigned int nb)
 	count = 0;
 	if (nb <= 9)
 	{
-		put_char(nb + '0');
+		count += put_char(nb + '0');
 	}
 	else
 	{

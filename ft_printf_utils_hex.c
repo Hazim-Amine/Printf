@@ -6,13 +6,13 @@
 /*   By: ahazim <ahazim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 21:35:51 by ahazim            #+#    #+#             */
-/*   Updated: 2022/01/11 15:28:50 by ahazim           ###   ########.fr       */
+/*   Updated: 2022/01/11 17:07:06 by ahazim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_printf.h"
 
-int	lowerexa(unsigned int num)
+int	lowerexa(unsigned long num)
 {
 	int		count;
 	char	*base;
@@ -29,10 +29,10 @@ int	lowerexa(unsigned int num)
 		count += lowerexa(num / 16);
 		count += lowerexa(num % 16);
 	}
-	return (num);
+	return (count);
 }
 
-int	upperexa(unsigned int num)
+int	upperexa(unsigned long num)
 {
 	int		count;
 	char	*base;
@@ -49,5 +49,45 @@ int	upperexa(unsigned int num)
 		count += upperexa(num / 16);
 		count += upperexa(num % 16);
 	}
-	return (num);
+	return (count);
+}
+
+int	ft_lowerexa(unsigned int num)
+{
+	int		count;
+	char	*base;
+
+	count = 0;
+	base = "0123456789abcdef";
+	if (num <= 15)
+	{
+		put_char(base[num]);
+		count++;
+	}
+	else
+	{
+		count += ft_lowerexa(num / 16);
+		count += ft_lowerexa(num % 16);
+	}
+	return (count);
+}
+
+int	ft_upperexa(unsigned int num)
+{
+	int		count;
+	char	*base;
+
+	count = 0;
+	base = "0123456789ABCDEF";
+	if (num <= 15)
+	{
+		put_char(base[num]);
+		count++;
+	}
+	else
+	{
+		count += ft_upperexa(num / 16);
+		count += ft_upperexa(num % 16);
+	}
+	return (count);
 }
