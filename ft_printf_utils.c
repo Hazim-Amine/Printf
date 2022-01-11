@@ -6,7 +6,7 @@
 /*   By: ahazim <ahazim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 17:02:56 by ahazim            #+#    #+#             */
-/*   Updated: 2022/01/11 16:39:17 by ahazim           ###   ########.fr       */
+/*   Updated: 2022/01/11 17:28:52 by ahazim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,6 @@ int	put_str(char *s)
 	return (count);
 }
 
-// long long	ft_count_len(long long num, int base)
-// {
-// 	int	count;
-
-// 	count = 0;
-// 	if (num <= 0)
-// 		count++;
-// 	while (num)
-// 	{
-// 		num = num / base;
-// 		count++;
-// 	}
-// 	return (count);
-// }
-
 int	ft_putnbr(int num)
 {
 	long long	nb;
@@ -75,7 +60,7 @@ int	ft_putnbr(int num)
 		count += ft_putnbr(nb / 10);
 		count += ft_putnbr(nb % 10);
 	}
-	return (count );
+	return (count);
 }
 
 int	ft_putunnb(unsigned int nb)
