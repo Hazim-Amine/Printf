@@ -6,7 +6,7 @@
 /*   By: ahazim <ahazim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 21:35:51 by ahazim            #+#    #+#             */
-/*   Updated: 2022/01/11 17:28:39 by ahazim           ###   ########.fr       */
+/*   Updated: 2022/01/16 22:49:50 by ahazim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,6 @@ int	lowerexa(unsigned long num)
 	{
 		count += lowerexa(num / 16);
 		count += lowerexa(num % 16);
-	}
-	return (count);
-}
-
-int	upperexa(unsigned long num)
-{
-	int		count;
-	char	*base;
-
-	count = 0;
-	base = "0123456789ABCDEF";
-	if (num <= 15)
-	{
-		put_char(base[num]);
-		count++;
-	}
-	else
-	{
-		count += upperexa(num / 16);
-		count += upperexa(num % 16);
 	}
 	return (count);
 }
